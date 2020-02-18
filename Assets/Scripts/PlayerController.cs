@@ -27,7 +27,7 @@ public class PlayerController : MonoBehaviour
         _transform.eulerAngles = facing;
     }
 
-    void Move( Vector3 destination )
+    public void Move( Vector3 destination )
     {
         _transform.DOMove(destination, 1.0f);
     }

@@ -8,6 +8,8 @@ public delegate void OnNumericPressDelegate(int num);
 public class InputController : MonoBehaviour
 {
     public static event OnButtonPressDelegate OnIncrement;
+    public static event OnButtonPressDelegate OnDecrement;
+    
     public static event OnNumericPressDelegate OnNumeric;
 
     public static InputController _instance;
@@ -20,14 +22,20 @@ public class InputController : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.X))
         {
             OnIncrement?.Invoke();
+        }
+        
+        if (Input.GetKeyDown(KeyCode.Z))
+        {
+            OnDecrement?.Invoke();
         }
 
         if (Input.GetKeyDown(KeyCode.Alpha1)) OnNumeric?.Invoke(0);
         if (Input.GetKeyDown(KeyCode.Alpha2)) OnNumeric?.Invoke(1);
         if (Input.GetKeyDown(KeyCode.Alpha3)) OnNumeric?.Invoke(2);
+        if (Input.GetKeyDown(KeyCode.Alpha3)) OnNumeric?.Invoke(4);
         
     }
 }
