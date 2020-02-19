@@ -36,7 +36,11 @@ public class PlayerController : MonoBehaviour
 
     public void Move( Vector3 destination )
     {
+        var tmp = TextMeshPro.transform.position;
+        tmp.x = destination.x;
+        tmp.z = destination.z;
         playerbody.DOMove(destination, 1.0f);
+        TextMeshPro.transform.DOMove(tmp, 1.0f);
     }
     
 }

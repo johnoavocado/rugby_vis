@@ -22,7 +22,7 @@ public class CameraController : MonoBehaviour
             var tmp = cameraPositions[pos];
             _transform.DOMove(tmp.position, 1.0f);
             _transform.DORotate(tmp.rotation.eulerAngles, 1.0f);
-            
+            _transform.parent = tmp;
         }
     }
 

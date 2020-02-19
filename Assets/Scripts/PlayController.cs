@@ -18,7 +18,7 @@ public class PlayController : MonoBehaviour
     private void Start()
     {
         _step = 0;
-        _steps = 3;
+        _steps = 11;
         
         ball.Pass(ballStartsWith);
     }

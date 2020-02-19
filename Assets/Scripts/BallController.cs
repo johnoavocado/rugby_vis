@@ -29,9 +29,9 @@ public class BallController : MonoBehaviour
 
     public void Pass(int step)
     {
-        if (step >= 0 && step < passingWayPoints.Length)
+        if (step > 0 && step < passingWayPoints.Length)
         {
-            Pass(passingWayPoints[step]);
+            if(passingWayPoints[step] != passingWayPoints[step-1]) Pass(passingWayPoints[step]);
             return;
         }
         Debug.Log("trying to pass to a waypoint outside of array range");
