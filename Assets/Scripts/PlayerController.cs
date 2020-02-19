@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Serialization;
 using DG.Tweening;
+using TMPro;
 
 public class PlayerController : MonoBehaviour
 {
@@ -11,7 +12,12 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private MeshRenderer[] teamColourables;
 
-    private Transform _transform;
+    public Transform playerbody;
+
+    public Transform hands;
+    
+    public GameObject TextMeshPro;
+
     
     void Start()
     {
@@ -21,15 +27,16 @@ public class PlayerController : MonoBehaviour
         }
         
         // Turn the player around
-        _transform = this.transform;
-        Vector3 facing = _transform.rotation.eulerAngles;
+        Vector3 facing = playerbody.rotation.eulerAngles;
         facing.y = teamAlignment.orientation;
-        _transform.eulerAngles = facing;
+        playerbody.eulerAngles = facing;
+
+        TextMeshPro.SetActive(teamAlignment.displaytext);
     }
 
     public void Move( Vector3 destination )
     {
-        _transform.DOMove(destination, 1.0f);
+        playerbody.DOMove(destination, 1.0f);
     }
     
 }

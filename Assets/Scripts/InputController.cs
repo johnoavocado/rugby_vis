@@ -9,6 +9,7 @@ public class InputController : MonoBehaviour
 {
     public static event OnButtonPressDelegate OnIncrement;
     public static event OnButtonPressDelegate OnDecrement;
+    public static event OnButtonPressDelegate OnNumbersToggle;
     
     public static event OnNumericPressDelegate OnNumeric;
 
@@ -35,7 +36,12 @@ public class InputController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Alpha1)) OnNumeric?.Invoke(0);
         if (Input.GetKeyDown(KeyCode.Alpha2)) OnNumeric?.Invoke(1);
         if (Input.GetKeyDown(KeyCode.Alpha3)) OnNumeric?.Invoke(2);
-        if (Input.GetKeyDown(KeyCode.Alpha3)) OnNumeric?.Invoke(4);
+        if (Input.GetKeyDown(KeyCode.Alpha4)) OnNumeric?.Invoke(3);
         
+        
+        if (Input.GetKeyDown(KeyCode.N))
+        {
+            OnNumbersToggle?.Invoke();
+        }
     }
 }

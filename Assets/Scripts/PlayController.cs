@@ -12,6 +12,9 @@ public class PlayController : MonoBehaviour
 
     public static event OnUpdateStep UpdateStep;
 
+    public BallController ball;
+    public PlayerController ballStartsWith;
+
     private bool _locked;
     
     private void Start()
@@ -19,6 +22,8 @@ public class PlayController : MonoBehaviour
         _step = 0;
         _steps = 3;
         _locked = false;
+        
+        ball.Pass(ballStartsWith);
     }
 
     void Increment()
