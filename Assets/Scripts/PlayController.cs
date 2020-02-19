@@ -14,14 +14,11 @@ public class PlayController : MonoBehaviour
 
     public BallController ball;
     public PlayerController ballStartsWith;
-
-    private bool _locked;
     
     private void Start()
     {
         _step = 0;
         _steps = 3;
-        _locked = false;
         
         ball.Pass(ballStartsWith);
     }
@@ -30,12 +27,14 @@ public class PlayController : MonoBehaviour
     {
         if ( (_step + 1) < _steps ) _step++;
         UpdateStep?.Invoke(_step);
+        Debug.Log("pc step " + _step);
     }
 
     void Decrement()
     {
         if ( (_step - 1) >= 0 ) _step--;
         UpdateStep?.Invoke(_step);
+        Debug.Log("pc step " + _step);
     }
 
     private void OnEnable()

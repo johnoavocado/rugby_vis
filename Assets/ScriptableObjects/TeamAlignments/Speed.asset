@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f702117beca84ea19df66751d50a478, type: 3}
   m_Name: Speed
   m_EditorClassIdentifier: 
-  prefabName: Speed
   TeamColours: {fileID: 2100000, guid: fe42f5dc7e3a54c3a900135c4555f364, type: 2}
   orientation: 0
+  displaytext: 1

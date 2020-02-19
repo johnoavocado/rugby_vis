@@ -13,6 +13,12 @@ public class BallController : MonoBehaviour
     private void OnEnable()
     {
         _transform = this.transform;
+        PlayController.UpdateStep += Pass;
+    }
+
+    private void OnDisable()
+    {
+        PlayController.UpdateStep -= Pass;
     }
 
     public void Pass(PlayerController destinationPC)
@@ -20,4 +26,15 @@ public class BallController : MonoBehaviour
         _transform.DOMove(destinationPC.hands.position, 1.0f);
         _transform.parent = destinationPC.hands;
     }
+
+    public void Pass(int step)
+    {
+        if (step >= 0 && step < passingWayPoints.Length)
+        {
+            Pass(passingWayPoints[step]);
+            return;
+        }
+        Debug.Log("trying to pass to a waypoint outside of array range");
+    }
+    
 }
